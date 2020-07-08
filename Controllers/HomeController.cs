@@ -15,8 +15,6 @@ namespace My_Portfolio_system.Controllers
     {
 
         private RestClient client = new RestClient("https://portfolio-aureliowozhiak.firebaseio.com/portfolio.json");
-        
-        
 
         public IActionResult Index()
         {
@@ -25,7 +23,9 @@ namespace My_Portfolio_system.Controllers
 
             IRestResponse response = client.Execute(request);
 
-            var model = JsonSerializer.Deserialize<List<Portfolio>>(response.Content);
+            var responseContent = JsonSerializer.Deserialize<List<Portfolio>>(response.Content);
+
+            var model = responseContent.ToList();
 
             return View(model);
         }

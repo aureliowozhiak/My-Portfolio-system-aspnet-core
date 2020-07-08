@@ -36,42 +36,23 @@
 
             <div class="col-md-8">
 
+                @foreach (var item in Model)
+                {
+                    if (item != null)
+                    {
+                        <div class="text-center card" style="width: 18rem;">
+                            <div class="card-body">
 
-                <div class="text-center card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
-                        <p class="card-text">Describe.</p>
-                        <a href="#" class="card-link">Link</a>
-                    </div>
-                </div>
+                                <h5 class="card-title">@item.title</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">@item.subtitle</h6>
+                                <p class="card-text">@item.describe</p>
+                                <a href="@item.url" class="card-link">@item.urlTitle</a>
 
-                <div class="text-center card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
-                        <p class="card-text">Describe.</p>
-                        <a href="#" class="card-link">Link</a>
-                    </div>
-                </div>
+                            </div>
+                        </div>
 
-                <div class="text-center card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Orientação e Objetos</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Conceitos básicos</h6>
-                        <p class="card-text">Curso que desenvolvi em 2017 com 10 aulas para ensinar os principais conceitos de orientação a objetos no meu canal do YouTube.</p>
-                        <a href="https://www.youtube.com/watch?v=g8UAD8BJGWA&list=PLRCKdG6PaMS1HrTIw6foWv4CtqxPMJeys" target="_blank" class="card-link">Link da Playlist</a>
-                    </div>
-                </div>
-
-                <div class="text-center card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Curso de Java</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Lógica de programação</h6>
-                        <p class="card-text">Curso que desenvolvi em 2016 com mais de 30 aulas para ensinar lógica de programação em Java no meu canal do YouTube.</p>
-                        <a href="https://www.youtube.com/watch?v=rdM1iCubQsg&list=PLRCKdG6PaMS02zE-ctR0ZHZUhcsx_yj-V" target="_blank" class="card-link">Link da Playlist</a>
-                    </div>
-                </div>
+                    }
+                }
 
             </div>
 
