@@ -14,18 +14,35 @@ namespace My_Portfolio_system.Controllers
     public class HomeController : Controller
     {
 
-        private RestClient client = new RestClient("https://portfolio-aureliowozhiak.firebaseio.com/portfolio.json");
+        private RestClient portfolioItems = new RestClient("https://portfolio-aureliowozhiak.firebaseio.com/portfolio/items.json");
+        
+        private RestClient portfolioSkills = new RestClient("https://portfolio-aureliowozhiak.firebaseio.com/portfolio/skills.json");
 
         public IActionResult Index()
         {
 
             var request = new RestRequest("", Method.GET);
 
-            IRestResponse response = client.Execute(request);
+            //items
 
-            var responseContent = JsonSerializer.Deserialize<List<Portfolio>>(response.Content);
+            IRestResponse responsePortfolioItems = portfolioItems.Execute(request);
 
-            var model = responseContent.ToList();
+            var responsePortfolioItemsContent = JsonSerializer.Deserialize<List<Portfolio>>(responsePortfolioItems.Content);
+
+            //skillss
+
+            IRestResponse responsePortfolioSkilss = portfolioItems.Execute(request);
+
+            var responsePortfolioSkilssContent = JsonSerializer.Deserialize<List<Skills>>(responsePortfolioSkilss.Content);
+
+
+            //return to model
+
+            var modelItems = responsePortfolioItemsContent.ToList();
+            var modelSkills = responsePortfolioSkilssContent.ToList();
+
+
+            var model = modelItems;
 
             return View(model);
         }

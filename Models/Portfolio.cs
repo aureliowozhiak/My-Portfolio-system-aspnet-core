@@ -14,8 +14,6 @@ namespace My_Portfolio_system.Models
         public string title { get; set; }
         public string subtitle { get; set; }
 
-
-
     }
 
 }
