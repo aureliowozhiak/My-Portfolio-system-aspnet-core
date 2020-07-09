@@ -23,26 +23,27 @@ namespace My_Portfolio_system.Controllers
 
             var request = new RestRequest("", Method.GET);
 
-            //items
+            //Deserialize items
 
             IRestResponse responsePortfolioItems = portfolioItems.Execute(request);
 
             var responsePortfolioItemsContent = JsonSerializer.Deserialize<List<Portfolio>>(responsePortfolioItems.Content);
 
-            //skillss
+            //Deserialize skillss
 
-            IRestResponse responsePortfolioSkilss = portfolioItems.Execute(request);
+            IRestResponse responsePortfolioSkilss = portfolioSkills.Execute(request);
 
             var responsePortfolioSkilssContent = JsonSerializer.Deserialize<List<Skills>>(responsePortfolioSkilss.Content);
 
-
             //return to model
 
-            var modelItems = responsePortfolioItemsContent.ToList();
-            var modelSkills = responsePortfolioSkilssContent.ToList();
+            var modelItems = responsePortfolioItemsContent.Cast<dynamic>().ToList();
+            var modelSkills = responsePortfolioSkilssContent.Cast<dynamic>().ToList();
 
+            var model = new List<List<dynamic>>();
 
-            var model = modelItems;
+            model.Add(modelItems);
+            model.Add(modelSkills);
 
             return View(model);
         }

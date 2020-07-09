@@ -21,10 +21,10 @@
                         <p class="card-text">Separei algumas das minhas habilidades principais e focos de estudos/projetos.</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Estatística e Análise de Dados</li>
-                        <li class="list-group-item">Raciocínio lógico matemático</li>
-                        <li class="list-group-item">Desenvolvimento Web</li>
-                        <li class="list-group-item">Experiência do Usuário</li>
+                        @foreach (var item in Model[1])
+                        {
+                            <li class="list-group-item">@item.skill</li>
+                        }
                     </ul>
                     <div class="card-body">
                         <a href="https://github.com/aureliowozhiak" class="card-link">GitHub</a>
@@ -36,11 +36,11 @@
 
             <div class="col-md-8">
 
-                @foreach (var item in Model)
+
+                @foreach (var item in Model[0])
                 {
-                    if (item != null)
-                    {
-                        <div class="text-center card" style="width: 18rem;">
+
+                    <div class="text-center card" style="width: 18rem;">
                             <div class="card-body">
 
                                 <h5 class="card-title">@item.title</h5>
@@ -51,7 +51,6 @@
                             </div>
                         </div>
 
-                    }
                 }
 
             </div>

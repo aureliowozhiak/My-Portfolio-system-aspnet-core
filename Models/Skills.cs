@@ -7,7 +7,6 @@ namespace My_Portfolio_system.Models
 {
     public class Skills
     {
-
         public string skill { get; set; }
 
     }
