@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include=".well-known\pki-validation\AC2E0059902AAA4E2D981B68AF7939AF.txt" />
+    <Content Include="Views\.well-known\pki-validation\AC2E0059902AAA4E2D981B68AF7939AF.txt" />
   </ItemGroup>
 
   <ItemGroup>
